@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* --- Vibrant Background --- */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Rich, vibrant gradient background */
+    background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Phone Container (Deep Black) --- */
+.phone-container {
+    width: 100%;
+    max-width: 400px;
+    height: 80vh; 
+    min-height: 500px;
+    background-color: #000000; /* Pure black for contrast */
+    border-radius: 35px;
+    /* Neon Glow Shadow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 0 8px #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- Chat Header (Vibrant Gradient) --- */
+.chat-header {
+    /* Intense Pink to Purple */
+    background: linear-gradient(90deg, #FF00CC 0%, #333399 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+.chat-header .font-bold {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.chat-header .opacity-80 {
+    color: #E0E0E0;
+}
+
+/* --- Chat Area (Black) --- */
+.chat-history {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scrollbar-width: none;
+}
+.chat-history::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- Message Bubbles --- */
+.message-bubble {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 20px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInMessage 0.3s ease-out forwards;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+
+.sender-message {
+    align-self: flex-start;
+    background-color: #262626; /* Dark gray */
+    color: #E0E0E0;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #333; /* Subtle border */
+}
+
+.recipient-message {
+    align-self: flex-end;
+    /* Electric Gradient */
+    background: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%);
+    color: white;
+    border-bottom-right-radius: 4px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(63, 94, 251, 0.3);
+}
+
+@keyframes fadeInMessage {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Input Area --- */
+.input-area {
+    background-color: #111; /* Slightly lighter than black */
+    padding: 1rem;
+    border-top: 1px solid #222;
+    z-index: 10;
+}
+
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* --- Vibrant Option Buttons --- */
+.option-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+    border: none;
+    /* Text Shadow for readability */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.option-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+.option-btn:active {
+    transform: scale(0.95);
+}
+
+/* Neon Green Gradient */
+.btn-yes {
+    background: linear-gradient(90deg, #00b09b, #96c93d);
+    box-shadow: 0 4px 15px rgba(0, 176, 155, 0.3);
+}
+/* Neon Red Gradient */
+.btn-no {
+    background: linear-gradient(90deg, #ed213a, #93291e);
+    box-shadow: 0 4px 15px rgba(237, 33, 58, 0.3);
+}
+/* Neon Purple/Pink Gradient */
+.btn-special {
+    background: linear-gradient(90deg, #DA22FF, #9733EE);
+    box-shadow: 0 4px 15px rgba(218, 34, 255, 0.3);
+}
+
+/* --- Floating Hearts --- */
+.heart-emoji {
+    position: absolute;
+    font-size: 24px; 
+    pointer-events: none; 
+    opacity: 0;
+    animation: floatUpAndFade 1.5s ease-out forwards; 
+    color: #FF00CC; 
+    text-shadow: 0 0 10px rgba(255, 0, 204, 0.8);
+    z-index: 100;
+}
+
+@keyframes floatUpAndFade {
+    0% { 
+        transform: translate(-50%, 0) scale(0.5); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translate(-50%, -150px) scale(1.5); 
+        opacity: 0; 
+    }
+}
+
+/* --- Header Icons --- */
+.control-btn-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
+}
+.control-btn-icon:hover {
+     background: rgba(255, 255, 255, 0.4);
+     transform: scale(1.05);
+}
+.control-btn-icon:disabled {
+    color: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: transparent;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* --- REALISTIC INPUT FIELD STYLES --- */
+.fake-input-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px;
+    background-color: #262626; /* Darker than input-area */
+    border-radius: 25px;
+    border: 1px solid #333;
+}
+
+.fake-text-input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    background-color: transparent;
+    border: none;
+    color: #E0E0E0;
+    outline: none;
+    font-size: 0.9rem;
+}
+.fake-text-input::placeholder {
+    color: #777;
+}
+
+.icon-btn, .send-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: not-allowed;
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    transition: transform 0.1s;
+}
+
+.icon-btn {
+    color: #DA22FF; /* Neon purple accent color for utility icons */
+}
+
+.send-btn {
+    /* Vibrant send button background (matching recipient bubble) */
+    background: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%);
+    color: white;
+    box-shadow: 0 0 8px rgba(63, 94, 251, 0.4);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- THEME SELECTOR --- */
+.theme-selector {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 12px 16px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.theme-btn {
+    padding: 8px 16px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.theme-btn.active {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ========== WHATSAPP THEME ========== */
+body.whatsapp-theme {
+    background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+}
+
+body.whatsapp-theme .phone-container {
+    background-color: #ECE5DD;
+}
+
+body.whatsapp-theme .chat-header {
+    background-color: #128C7E;
+    padding: 12px 16px;
+}
+
+body.whatsapp-theme .chat-header .font-bold {
+    font-size: 16px;
+    color: white;
+    text-shadow: none;
+}
+
+body.whatsapp-theme .chat-header .opacity-80 {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+body.whatsapp-theme .chat-history {
+    background: linear-gradient(180deg, #ECE5DD 0%, #ECE5DD 100%);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><text x="50" y="50" font-size="0.7" fill="%23e0e0e0" text-anchor="middle" dominant-baseline="middle">.</text></pattern></defs><rect width="100" height="100" fill="%23ECE5DD"/><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+}
+
+body.whatsapp-theme .sender-message {
+    background-color: #FFFFFF;
+    color: #000;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+body.whatsapp-theme .recipient-message {
+    background: linear-gradient(135deg, #DCF8C6 0%, #B8E6A6 100%);
+    color: #000;
+    border-radius: 18px;
+    font-weight: normal;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+body.whatsapp-theme .input-area {
+    background-color: #ECE5DD;
+    border-top: 1px solid #CCCCCC;
+    padding: 12px 8px;
+}
+
+body.whatsapp-theme .fake-input-bar {
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    padding: 6px 8px;
+}
+
+body.whatsapp-theme .fake-text-input {
+    color: #000;
+    font-size: 14px;
+}
+
+body.whatsapp-theme .fake-text-input::placeholder {
+    color: #999;
+}
+
+body.whatsapp-theme .icon-btn {
+    color: #128C7E;
+}
+
+body.whatsapp-theme .send-btn {
+    background: none;
+    color: #128C7E;
+    box-shadow: none;
+}
+
+body.whatsapp-theme .option-btn {
+    background-color: #128C7E;
+    color: white;
+    border-radius: 20px;
+    text-shadow: none;
+}
+
+body.whatsapp-theme .option-btn:hover {
+    background-color: #0d6f5c;
+}
+
+body.whatsapp-theme .btn-yes {
+    background-color: #128C7E;
+}
+
+body.whatsapp-theme .btn-no {
+    background-color: #E74C3C;
+}
+
+body.whatsapp-theme .btn-special {
+    background-color: #128C7E;
+}
+
+/* ========== INSTAGRAM THEME ========== */
+body.instagram-theme {
+    background: linear-gradient(135deg, #FFA500 0%, #FF1493 100%);
+}
+
+body.instagram-theme .phone-container {
+    background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+}
+
+body.instagram-theme .chat-header {
+    background: linear-gradient(90deg, #FFA500 0%, #FF1493 100%);
+    padding: 14px 16px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+body.instagram-theme .chat-header .font-bold {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-shadow: none;
+}
+
+body.instagram-theme .chat-header .opacity-80 {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+}
+
+body.instagram-theme .chat-history {
+    background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+}
+
+body.instagram-theme .sender-message {
+    background-color: #E8E8EA;
+    color: #000;
+    border-radius: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+body.instagram-theme .recipient-message {
+    background: linear-gradient(135deg, #FFA500 0%, #FF1493 100%);
+    color: white;
+    border-radius: 18px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(255, 165, 0, 0.3);
+}
+
+body.instagram-theme .input-area {
+    background-color: #FAFAFA;
+    border-top: 1px solid #E8E8E8;
+    padding: 12px 8px;
+}
+
+body.instagram-theme .fake-input-bar {
+    background-color: #FAFAFA;
+    border: 1px solid #E8E8E8;
+    padding: 8px 12px;
+}
+
+body.instagram-theme .fake-text-input {
+    color: #262626;
+    font-size: 14px;
+}
+
+body.instagram-theme .fake-text-input::placeholder {
+    color: #999;
+}
+
+body.instagram-theme .icon-btn {
+    color: #FF1493;
+}
+
+body.instagram-theme .send-btn {
+    background: linear-gradient(135deg, #FFA500 0%, #FF1493 100%);
+    color: white;
+    box-shadow: none;
+}
+
+body.instagram-theme .option-btn {
+    background: linear-gradient(135deg, #FFA500 0%, #FF1493 100%);
+    color: white;
+    border-radius: 20px;
+    text-shadow: none;
+}
+
+body.instagram-theme .option-btn:hover {
+    filter: brightness(0.9);
+}
+
+body.instagram-theme .btn-yes {
+    background: linear-gradient(135deg, #FFA500 0%, #FF1493 100%);
+}
+
+body.instagram-theme .btn-no {
+    background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+}
+
+body.instagram-theme .btn-special {
+    background: linear-gradient(135deg, #FFA500 0%, #FF1493 100%);
+}
